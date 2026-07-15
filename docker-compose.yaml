@@ -1,0 +1,66 @@
+services:
+  health-blog-platform:
+    build: .
+    image: health-blog-platform:latest
+    container_name: health-blog-platform
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/health_blog_db
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: sa
+      SECURITY_JWT_SECRET: change-this-secret-to-a-long-random-production-value-32-bytes
+      MINIO_ENDPOINT: http://minio:9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+      MINIO_BUCKET: health-blog
+    depends_on:
+      mysql:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    networks:
+      - health-blog-net
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: health_blog_db
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: sa
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - health-blog-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - health-blog-net
+
+  minio:
+    image: minio/minio:RELEASE.2024-07-16T23-46-41Z
+    container_name: minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio-data:/data
+    networks:
+      - health-blog-net
+
+volumes:
+  health-blog-mysql-data:
+  minio-data:
+
+networks:
+  health-blog-net:
+    driver: bridge
