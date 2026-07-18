@@ -38,6 +38,10 @@ public class PostServiceImpl implements PostService {
                 : postRepository.findByTitleContainingIgnoreCase(keyword, pageable);
         return posts.map(postMapper::from);
     }
+    @Override
+    public PostResponse view(String id) {
+        return postMapper.from(findById(id));
+    }
 
     private Post findById(String id) {
         return postRepository.findById(id)
