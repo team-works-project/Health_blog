@@ -1,17 +1,16 @@
-package com.website.post.dto.Response;
-import java.time.Instant;
+package com.website.tag_create.dto.Response;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryResponse {
+public class TagResponse {
     private String id;
     private String name;
-    private String description;
-    private boolean enabled;
     private Instant createdAt;
-    private Instant updatedAt;
 }

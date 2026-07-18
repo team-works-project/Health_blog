@@ -2,13 +2,13 @@ package com.website.post.service;
 
 
 import com.website.post.dto.Response.PostResponse;
-import com.website.post.entity.Category;
+import com.website.category_create.entity.Category;
 import com.website.post.entity.Post;
-import com.website.post.entity.Tag;
+import com.website.tag_create.entity.Tag;
 import com.website.post.mapper.PostMapper;
-import com.website.post.repository.CategoryRepository;
+import com.website.category_create.repository.CategoryRepository;
 import com.website.post.repository.PostRepository;
-import com.website.post.repository.TagRepository;
+import com.website.tag_create.repository.TagRepository;
 import com.website.shared.security.UserAccount;
 import com.website.shared.security.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,10 +37,6 @@ public class PostServiceImpl implements PostService {
                 ? postRepository.findAll(pageable)
                 : postRepository.findByTitleContainingIgnoreCase(keyword, pageable);
         return posts.map(postMapper::from);
-    }
-    @Override
-    public PostResponse view(String id) {
-        return postMapper.from(findById(id));
     }
 
     private Post findById(String id) {

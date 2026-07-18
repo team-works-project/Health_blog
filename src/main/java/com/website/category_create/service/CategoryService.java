@@ -1,7 +1,7 @@
-package com.website.post.service;
+package com.website.category_create.service;
 
-import com.website.post.dto.Request.CategoryRequest;
-import com.website.post.dto.Response.CategoryResponse;
+import com.website.category_create.dto.Request.CategoryRequest;
+import com.website.category_create.dto.Response.CategoryResponse;
 import org.springframework.data.domain.Page;
 
 public interface CategoryService {

@@ -1,8 +1,8 @@
-package com.website.post.mapper;
+package com.website.tag_create.mapper;
 
-import com.website.post.dto.Request.TagRequest;
-import com.website.post.dto.Response.TagResponse;
-import com.website.post.entity.Tag;
+import com.website.tag_create.dto.Request.TagRequest;
+import com.website.tag_create.dto.Response.TagResponse;
+import com.website.tag_create.entity.Tag;
 import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")

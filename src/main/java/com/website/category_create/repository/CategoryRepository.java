@@ -1,7 +1,7 @@
-package com.website.post.repository;
+package com.website.category_create.repository;
 
 
-import com.website.post.entity.Category;
+import com.website.category_create.entity.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

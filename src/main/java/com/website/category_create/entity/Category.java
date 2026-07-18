@@ -1,4 +1,4 @@
-package com.website.post.entity;
+package com.website.category_create.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

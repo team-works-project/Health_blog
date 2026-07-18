@@ -1,11 +1,11 @@
-package com.website.post.controller;
+package com.website.category_create.controller;
 
 
 
 
-import com.website.post.dto.Request.CategoryRequest;
-import com.website.post.dto.Response.CategoryResponse;
-import com.website.post.service.CategoryService;
+import com.website.category_create.dto.Request.CategoryRequest;
+import com.website.category_create.dto.Response.CategoryResponse;
+import com.website.category_create.service.CategoryService;
 import com.website.shared.entity.HttpBodyResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

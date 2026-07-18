@@ -1,10 +1,10 @@
-package com.website.post.service;
+package com.website.category_create.service;
 
-import com.website.post.dto.Request.CategoryRequest;
-import com.website.post.dto.Response.CategoryResponse;
-import com.website.post.entity.Category;
-import com.website.post.mapper.CategoryMapper;
-import com.website.post.repository.CategoryRepository;
+import com.website.category_create.dto.Request.CategoryRequest;
+import com.website.category_create.dto.Response.CategoryResponse;
+import com.website.category_create.entity.Category;
+import com.website.category_create.mapper.CategoryMapper;
+import com.website.category_create.repository.CategoryRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
 

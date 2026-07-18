@@ -1,8 +1,8 @@
-package com.website.post.controller;
+package com.website.tag_create.controller;
 
-import com.website.post.dto.Request.TagRequest;
-import com.website.post.dto.Response.TagResponse;
-import com.website.post.service.TagService;
+import com.website.tag_create.dto.Request.TagRequest;
+import com.website.tag_create.dto.Response.TagResponse;
+import com.website.tag_create.service.TagService;
 import com.website.shared.entity.HttpBodyResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

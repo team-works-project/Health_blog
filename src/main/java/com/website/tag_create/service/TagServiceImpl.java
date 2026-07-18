@@ -1,11 +1,11 @@
-package com.website.post.service;
+package com.website.tag_create.service;
 
 
-import com.website.post.dto.Request.TagRequest;
-import com.website.post.dto.Response.TagResponse;
-import com.website.post.entity.Tag;
-import com.website.post.mapper.TagMapper;
-import com.website.post.repository.TagRepository;
+import com.website.tag_create.dto.Request.TagRequest;
+import com.website.tag_create.dto.Response.TagResponse;
+import com.website.tag_create.entity.Tag;
+import com.website.tag_create.mapper.TagMapper;
+import com.website.tag_create.repository.TagRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class TagServiceImpl implements TagService{
+public class TagServiceImpl implements TagService {
     private final TagRepository tagRepository;
     private final TagMapper tagMapper;
 

@@ -1,4 +1,4 @@
-package com.website.post.dto.Request;
+package com.website.category_create.dto.Request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TagRequest {
+public class CategoryRequest {
     @NotBlank
-    @Size(max = 50)
+    @Size(max = 120)
     private String name;
+
+    @Size(max = 500)
+    private String description;
 }

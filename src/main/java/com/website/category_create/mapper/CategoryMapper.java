@@ -1,9 +1,9 @@
-package com.website.post.mapper;
+package com.website.category_create.mapper;
 
 
-import com.website.post.dto.Request.CategoryRequest;
-import com.website.post.dto.Response.CategoryResponse;
-import com.website.post.entity.Category;
+import com.website.category_create.dto.Request.CategoryRequest;
+import com.website.category_create.dto.Response.CategoryResponse;
+import com.website.category_create.entity.Category;
 import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")

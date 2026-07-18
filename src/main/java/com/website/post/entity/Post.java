@@ -1,7 +1,9 @@
 package com.website.post.entity;
 
 
+import com.website.category_create.entity.Category;
 import com.website.shared.security.UserAccount;
+import com.website.tag_create.entity.Tag;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
