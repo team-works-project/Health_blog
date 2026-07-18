@@ -35,36 +35,5 @@ public class PostCategory {
                         posts.getNumber(), posts.getSize(), posts.getTotalElements(), posts.getTotalPages()));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<HttpBodyResponse<PostResponse>> view(@PathVariable String id) {
-        return responseSucceed(postService.view(id));
-    }
-
-    @PostMapping
-    public ResponseEntity<HttpBodyResponse<PostDetailResponse>> create(
-            @Valid @RequestBody PostRequest request) {
-        return responseCreated(postService.create(new Metadata(), request));
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<HttpBodyResponse<PostDetailResponse>> update(
-            @PathVariable String id, @Valid @RequestBody PostRequest request) {
-        return responseSucceed(postService.update(new Metadata(), id, request));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        postService.delete(id);
-        return responseDeleted();
-    }
-    @PatchMapping("/{id}/enabled")
-    public ResponseEntity<HttpBodyResponse<PostDetailResponse>> enable(@PathVariable String id) {
-        return responseSucceed(postService.enable(new Metadata(), id));
-    }
-
-    @PatchMapping("/{id}/disabled")
-    public ResponseEntity<HttpBodyResponse<PostDetailResponse>> disable(@PathVariable String id) {
-        return responseSucceed(postService.disable(new Metadata(), id));
-    }
 
 }

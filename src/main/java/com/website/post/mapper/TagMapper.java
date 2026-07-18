@@ -9,12 +9,7 @@ import org.mapstruct.*;
 public interface TagMapper {
     TagResponse from(Tag tag);
 
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     Tag from(TagRequest request);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "createdAt", ignore = true)
-    void updateFrom(TagRequest request, @MappingTarget Tag tag);
 }

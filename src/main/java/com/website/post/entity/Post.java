@@ -26,7 +26,7 @@ public class Post {
     @Column(nullable = false)
     private PostType type;
 
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String content;
 
     private String thumbnail;
@@ -60,23 +60,6 @@ public class Post {
         updatedAt = createdAt;
     }
 
-    public void update(String title, PostType type, String content, String thumbnail, Category category, Set<Tag> tags) {
-        this.title = title;
-        this.type = type;
-        this.content = content;
-        this.thumbnail = thumbnail;
-        this.category = category;
-        this.tags = tags;
-        this.updatedAt = Instant.now();
-    }
-    public void enable() {
-        this.enabled = true;
-        this.updatedAt = Instant.now();
-    }
-
-    public void disable() {
-        this.enabled = false;
-        this.updatedAt = Instant.now();
-    }
+    
 
 }
