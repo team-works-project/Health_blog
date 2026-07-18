@@ -18,4 +18,8 @@ public interface PostService {
     PostDetailResponse update(Metadata metadata, String id, PostRequest request);
 
     void delete(String id);
+
+    PostDetailResponse enable(Metadata metadata, String id);
+
+    PostDetailResponse disable(Metadata metadata, String id);
 }

@@ -7,7 +7,6 @@ import com.website.post.service.PostService;
 import com.website.shared.entity.HttpBodyPagingResponse;
 import com.website.shared.entity.HttpBodyResponse;
 import com.website.shared.metadata.Metadata;
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -56,6 +55,15 @@ public class PostController {
     public ResponseEntity<Void> delete(@PathVariable String id) {
         postService.delete(id);
         return responseDeleted();
+    }
+
+    @PatchMapping("/{id}/enabled")
+    public ResponseEntity<HttpBodyResponse<PostDetailResponse>> enable(@PathVariable String id) {
+        return responseSucceed(postService.enable(new Metadata(), id));
+    }
+    @PatchMapping("/{id}/disabled")
+    public ResponseEntity<HttpBodyResponse<PostDetailResponse>> disable(@PathVariable String id) {
+        return responseSucceed(postService.disable(new Metadata(), id));
     }
 
 

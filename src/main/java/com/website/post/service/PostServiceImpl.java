@@ -82,6 +82,27 @@ public class PostServiceImpl implements PostService {
         postRepository.delete(findById(id));
     }
 
+    @Override
+    @MetadataHandler
+    @Transactional
+    public PostDetailResponse enable(Metadata metadata, String id) {
+        Post post = findById(id);
+        post.enable();
+        post.setUpdatedBy(metadata.getEmail());
+        return postMapper.fromDetail(postRepository.save(post));
+    }
+
+    @Override
+    @MetadataHandler
+    @Transactional
+    public PostDetailResponse disable(Metadata metadata, String id) {
+        Post post = findById(id);
+        post.disable();
+        post.setUpdatedBy(metadata.getEmail());
+        return postMapper.fromDetail(postRepository.save(post));
+    }
+
+
     private Post findById(String id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Post not found"));

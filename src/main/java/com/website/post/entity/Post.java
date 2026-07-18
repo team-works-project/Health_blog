@@ -74,4 +74,13 @@ public class Post {
         this.tags = tags;
         this.updatedAt = Instant.now();
     }
+    public void enable() {
+        this.enabled = true;
+        this.updatedAt = Instant.now();
+    }
+    public void disable() {
+        this.enabled = false;
+        this.updatedAt = Instant.now();
+    }
+
 }
