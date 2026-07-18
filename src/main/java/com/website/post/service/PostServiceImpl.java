@@ -64,7 +64,17 @@ public class PostServiceImpl implements PostService {
         post.setUpdatedBy(metadata.getEmail());
         return postMapper.fromDetail(postRepository.save(post));
     }
-
+    @Override
+    @MetadataHandler
+    @Transactional
+    public PostDetailResponse update(Metadata metadata, String id, PostRequest request) {
+        Post post = findById(id);
+        post.update(
+                request.getTitle(), request.getType(), request.getContent(), request.getThumbnail(),
+                resolveCategory(request.getCategoryId()), resolveTags(request.getTagIds()));
+        post.setUpdatedBy(metadata.getEmail());
+        return postMapper.fromDetail(postRepository.save(post));
+    }
 
     private Post findById(String id) {
         return postRepository.findById(id)

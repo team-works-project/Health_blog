@@ -14,4 +14,6 @@ public interface PostService {
     PostResponse view(String id);
 
     PostDetailResponse create(Metadata metadata, PostRequest request);
+
+    PostDetailResponse update(Metadata metadata, String id, PostRequest request);
 }

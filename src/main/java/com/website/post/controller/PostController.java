@@ -45,6 +45,12 @@ public class PostController {
         return responseCreated(postService.create(new Metadata(), request));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<HttpBodyResponse<PostDetailResponse>> update(
+            @PathVariable String id, @Valid @RequestBody PostRequest request) {
+        return responseSucceed(postService.update(new Metadata(), id, request));
+    }
+
 
 
 }
