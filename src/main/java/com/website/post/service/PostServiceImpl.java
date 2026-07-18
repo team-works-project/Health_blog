@@ -76,6 +76,12 @@ public class PostServiceImpl implements PostService {
         return postMapper.fromDetail(postRepository.save(post));
     }
 
+    @Override
+    @Transactional
+    public void delete(String id) {
+        postRepository.delete(findById(id));
+    }
+
     private Post findById(String id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Post not found"));
