@@ -1,9 +1,13 @@
 package com.website.post.service;
 
 
+import com.website.post.dto.Request.PostRequest;
+import com.website.post.dto.Response.PostDetailResponse;
 import com.website.post.dto.Response.PostResponse;
 import com.website.category_create.entity.Category;
 import com.website.post.entity.Post;
+import com.website.shared.metadata.Metadata;
+import com.website.shared.metadata.MetadataHandler;
 import com.website.tag_create.entity.Tag;
 import com.website.post.mapper.PostMapper;
 import com.website.category_create.repository.CategoryRepository;
@@ -11,6 +15,7 @@ import com.website.post.repository.PostRepository;
 import com.website.tag_create.repository.TagRepository;
 import com.website.shared.security.UserAccount;
 import com.website.shared.security.UserRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -42,6 +47,24 @@ public class PostServiceImpl implements PostService {
     public PostResponse view(String id) {
         return postMapper.from(findById(id));
     }
+
+    @Override
+    @MetadataHandler
+    @Transactional
+    public PostDetailResponse create(Metadata metadata, PostRequest request) {
+        Post post = new Post();
+        post.setTitle(request.getTitle());
+        post.setType(request.getType());
+        post.setContent(request.getContent());
+        post.setThumbnail(request.getThumbnail());
+        post.setCategory(resolveCategory(request.getCategoryId()));
+        post.setAuthor(resolveAuthor(metadata.getUserId()));
+        post.setTags(resolveTags(request.getTagIds()));
+        post.setCreatedBy(metadata.getEmail());
+        post.setUpdatedBy(metadata.getEmail());
+        return postMapper.fromDetail(postRepository.save(post));
+    }
+
 
     private Post findById(String id) {
         return postRepository.findById(id)
