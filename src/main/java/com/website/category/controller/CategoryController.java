@@ -65,5 +65,11 @@ public class CategoryController {
         return responseSucceed(categoryService.update(id, request));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        categoryService.delete(id);
+        return responseDeleted();
+    }
+
 
 }

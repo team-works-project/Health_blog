@@ -9,4 +9,5 @@ public interface CategoryService {
     CategoryResponse view(String id);
     CategoryResponse create(CategoryRequest request);
     CategoryResponse update(String id, CategoryRequest request);
+    void delete(String id);
 }
