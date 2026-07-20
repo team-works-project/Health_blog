@@ -27,4 +27,11 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryResponse create(CategoryRequest request) {
         return null;
     }
+
+    @Override
+    public CategoryResponse update(String id, CategoryRequest request) {
+        return null;
+    }
+
+
 }
