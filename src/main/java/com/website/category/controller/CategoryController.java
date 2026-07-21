@@ -32,6 +32,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryController {
     private final CategoryService categoryService;
 
+    @GetMapping
+    public ResponseEntity<HttpBodyResponse<List<CategoryResponse>>> list(
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer size,
+            @RequestParam(required = false) String keyword) {
+        Page<CategoryResponse> categories = categoryService.list(page, size, keyword);
+        List<CategoryResponse> response = categories.getContent();
+        return responsePaging(
+                response,
+                HttpBodyPagingResponse.of(
+                        categories.getNumber(),
+                        categories.getSize(),
+                        categories.getTotalElements(),
+                        categories.getTotalPages()));
+    }
+
+
     @PostMapping
     public ResponseEntity<HttpBodyResponse<CategoryResponse>> create(
             @Valid @RequestBody CategoryRequest request) {

@@ -14,6 +14,11 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 
     @Override
+    public Page<CategoryResponse> list(Integer page, Integer size, String keyword) {
+        return null;
+    }
+
+    @Override
     public CategoryResponse create(CategoryRequest request) {
         return null;
     }
