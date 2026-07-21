@@ -32,44 +32,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryController {
     private final CategoryService categoryService;
 
-    @GetMapping
-    public ResponseEntity<HttpBodyResponse<List<CategoryResponse>>> list(
-            @RequestParam(required = false) Integer page,
-            @RequestParam(required = false) Integer size,
-            @RequestParam(required = false) String keyword) {
-        Page<CategoryResponse> categories = categoryService.list(page, size, keyword);
-        List<CategoryResponse> response = categories.getContent();
-        return responsePaging(
-                response,
-                HttpBodyPagingResponse.of(
-                        categories.getNumber(),
-                        categories.getSize(),
-                        categories.getTotalElements(),
-                        categories.getTotalPages()));
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<HttpBodyResponse<CategoryResponse>> view(@PathVariable String id) {
-        return responseSucceed(categoryService.view(id));
-    }
-
     @PostMapping
     public ResponseEntity<HttpBodyResponse<CategoryResponse>> create(
             @Valid @RequestBody CategoryRequest request) {
         return responseCreated(categoryService.create(request));
     }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<HttpBodyResponse<CategoryResponse>> update(
-            @PathVariable String id, @Valid @RequestBody CategoryRequest request) {
-        return responseSucceed(categoryService.update(id, request));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        categoryService.delete(id);
-        return responseDeleted();
-    }
-
 
 }

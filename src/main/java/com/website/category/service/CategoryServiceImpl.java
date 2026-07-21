@@ -14,28 +14,8 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 
     @Override
-    public Page<CategoryResponse> list(Integer page, Integer size, String keyword) {
-        return null;
-    }
-
-    @Override
-    public CategoryResponse view(String id) {
-        return null;
-    }
-
-    @Override
     public CategoryResponse create(CategoryRequest request) {
         return null;
-    }
-
-    @Override
-    public CategoryResponse update(String id, CategoryRequest request) {
-        return null;
-    }
-
-    @Override
-    public void delete(String id) {
-
     }
 
 
