@@ -28,5 +28,15 @@ public class CategoryServiceImpl implements CategoryService {
 
     }
 
+    @Override
+    public CategoryResponse enable(String id) {
+        return null;
+    }
+
+    @Override
+    public CategoryResponse disable(String id) {
+        return null;
+    }
+
 
 }

@@ -50,4 +50,14 @@ public class CategoryController {
         return responseDeleted();
     }
 
+    @PatchMapping("/{id}/enabled")
+    public ResponseEntity<HttpBodyResponse<CategoryResponse>> enable(@PathVariable String id) {
+        return responseSucceed(categoryService.enable(id));
+    }
+
+    @PatchMapping("/{id}/disabled")
+    public ResponseEntity<HttpBodyResponse<CategoryResponse>> disable(@PathVariable String id) {
+        return responseSucceed(categoryService.disable(id));
+    }
+
 }

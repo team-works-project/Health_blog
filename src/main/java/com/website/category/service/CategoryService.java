@@ -8,4 +8,6 @@ public interface CategoryService {
     CategoryResponse create(CategoryRequest request);
     CategoryResponse update(String id, CategoryRequest request);
     void delete(String id);
+    CategoryResponse enable(String id);
+    CategoryResponse disable(String id);
 }
