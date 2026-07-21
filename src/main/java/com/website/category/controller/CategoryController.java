@@ -38,4 +38,10 @@ public class CategoryController {
         return responseCreated(categoryService.create(request));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<HttpBodyResponse<CategoryResponse>> update(
+            @PathVariable String id, @Valid @RequestBody CategoryRequest request) {
+        return responseSucceed(categoryService.update(id, request));
+    }
+
 }

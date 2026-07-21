@@ -6,4 +6,5 @@ import org.springframework.data.domain.Page;
 
 public interface CategoryService {
     CategoryResponse create(CategoryRequest request);
+    CategoryResponse update(String id, CategoryRequest request);
 }
