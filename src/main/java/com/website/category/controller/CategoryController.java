@@ -48,6 +48,11 @@ public class CategoryController {
                         categories.getTotalPages()));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<HttpBodyResponse<CategoryResponse>> view(@PathVariable String id) {
+        return responseSucceed(categoryService.view(id));
+    }
+
 
     @PostMapping
     public ResponseEntity<HttpBodyResponse<CategoryResponse>> create(

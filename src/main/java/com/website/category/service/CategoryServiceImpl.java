@@ -19,6 +19,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public CategoryResponse view(String id) {
+        return null;
+    }
+
+    @Override
     public CategoryResponse create(CategoryRequest request) {
         return null;
     }
