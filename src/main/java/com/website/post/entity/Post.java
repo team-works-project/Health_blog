@@ -1,13 +1,10 @@
 package com.website.post.entity;
 
 
-import com.website.category_create.entity.Category;
+import com.website.category.entity.Category;
 import com.website.shared.security.UserAccount;
-import com.website.tag_create.entity.Tag;
+import com.website.tag.entity.Tag;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
