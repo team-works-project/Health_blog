@@ -1,13 +1,18 @@
 package com.website.tag.entity;
 
-import jakarta.persistence.*;
-
-import lombok.Getter;
-import lombok.Setter;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
 import java.time.Instant;
 import java.util.UUID;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
 @Getter
 @Setter
 @Entity
@@ -29,4 +34,7 @@ public class Tag {
         createdAt = Instant.now();
     }
 
+    public void update(String name) {
+        this.name = name;
+    }
 }
