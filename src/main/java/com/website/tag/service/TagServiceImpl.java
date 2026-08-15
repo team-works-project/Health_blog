@@ -1,8 +1,8 @@
 package com.website.tag.service;
 
 
-import com.website.tag.dto.Request.TagRequest;
-import com.website.tag.dto.Response.TagResponse;
+import com.website.tag.dto.request.TagRequest;
+import com.website.tag.dto.response.TagResponse;
 import com.website.tag.entity.Tag;
 import com.website.tag.mapper.TagMapper;
 import com.website.tag.repository.TagRepository;

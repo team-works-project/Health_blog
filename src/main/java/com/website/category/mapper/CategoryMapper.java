@@ -1,8 +1,8 @@
 package com.website.category.mapper;
 
 import com.website.category.entity.Category;
-import com.website.category.dto.CategoryRequest;
-import com.website.category.dto.CategoryResponse;
+import com.website.category.dto.request.CategoryRequest;
+import com.website.category.dto.response.CategoryResponse;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

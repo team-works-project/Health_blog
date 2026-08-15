@@ -1,7 +1,7 @@
 package com.website.tag.service;
 
-import com.website.tag.dto.Request.TagRequest;
-import com.website.tag.dto.Response.TagResponse;
+import com.website.tag.dto.request.TagRequest;
+import com.website.tag.dto.response.TagResponse;
 import org.springframework.data.domain.Page;
 
 public interface TagService {

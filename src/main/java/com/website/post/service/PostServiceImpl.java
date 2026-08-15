@@ -1,9 +1,9 @@
 package com.website.post.service;
 
 
-import com.website.post.dto.Request.PostRequest;
-import com.website.post.dto.Response.PostDetailResponse;
-import com.website.post.dto.Response.PostResponse;
+import com.website.post.dto.request.PostRequest;
+import com.website.post.dto.response.PostDetailResponse;
+import com.website.post.dto.response.PostResponse;
 import com.website.category.entity.Category;
 import com.website.post.entity.Post;
 import com.website.shared.metadata.Metadata;

@@ -1,7 +1,7 @@
 package com.website.tag.controller;
 
-import com.website.tag.dto.Request.TagRequest;
-import com.website.tag.dto.Response.TagResponse;
+import com.website.tag.dto.request.TagRequest;
+import com.website.tag.dto.response.TagResponse;
 import com.website.tag.service.TagService;
 import com.website.shared.entity.HttpBodyResponse;
 import jakarta.validation.Valid;

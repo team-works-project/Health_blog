@@ -1,4 +1,4 @@
-package com.website.post.dto.Request;
+package com.website.post.dto.request;
 
 import com.website.post.entity.PostType;
 import jakarta.validation.constraints.NotBlank;

@@ -1,8 +1,8 @@
 package com.website.post.mapper;
 
 
-import com.website.post.dto.Response.PostDetailResponse;
-import com.website.post.dto.Response.PostResponse;
+import com.website.post.dto.response.PostDetailResponse;
+import com.website.post.dto.response.PostResponse;
 import com.website.post.entity.Post;
 import com.website.tag.mapper.TagMapper;
 import org.mapstruct.Mapper;

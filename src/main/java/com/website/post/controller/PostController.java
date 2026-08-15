@@ -1,8 +1,8 @@
 package com.website.post.controller;
 
-import com.website.post.dto.Request.PostRequest;
-import com.website.post.dto.Response.PostDetailResponse;
-import com.website.post.dto.Response.PostResponse;
+import com.website.post.dto.request.PostRequest;
+import com.website.post.dto.response.PostDetailResponse;
+import com.website.post.dto.response.PostResponse;
 import com.website.post.service.PostService;
 import com.website.shared.entity.HttpBodyPagingResponse;
 import com.website.shared.entity.HttpBodyResponse;

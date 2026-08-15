@@ -1,4 +1,4 @@
-package com.website.category.dto;
+package com.website.category.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
