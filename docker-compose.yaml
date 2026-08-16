@@ -20,9 +20,9 @@ services:
 
       MAIL_HOST: smtp.gmail.com
       MAIL_PORT: 587
-      MAIL_USERNAME: ${MAIL_USERNAME:-ornsunlang75802gmail.com}
+      MAIL_USERNAME: ${MAIL_USERNAME:-ornsunlang7580@gmail.com}
       MAIL_PASSWORD: ${MAIL_PASSWORD:-eupz hjil aqvw lpgl}
-      MAIL_FROM: ornsunlang7580gmail.com
+      MAIL_FROM: ornsunlang7580@gmail.com
       APP_FRONTEND_URL: http://localhost:5173
 
     depends_on:
