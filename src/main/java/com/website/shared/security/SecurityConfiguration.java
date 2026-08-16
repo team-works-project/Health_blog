@@ -31,26 +31,23 @@ public class SecurityConfiguration {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
 
-                        // ---- PUBLIC: no login required -------------------------------------
                         .requestMatchers(
-                                "/api/auth/signup", "/api/auth/signin", "/api/auth/refresh", "/h2-console/**")
+                                "/api/auth/signup", "/api/auth/signin", "/api/auth/refresh",
+                                "/api/auth/verify-email", "/api/auth/resend-code", "/h2-console/**")
                         .permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/tags/**").permitAll()
 
-                        // ---- AUTHENTICATED: logged in, any role -----------------------------
                         .requestMatchers(HttpMethod.POST, "/api/posts/*/comments").authenticated()
                         .requestMatchers(HttpMethod.DELETE, "/api/comments/**").authenticated()
                         .requestMatchers(HttpMethod.POST, "/api/users/*/follow").authenticated()
                         .requestMatchers(HttpMethod.DELETE, "/api/users/*/follow").authenticated()
 
-                        // ---- ADMIN ONLY: create/update/delete content ------------------------
                         .requestMatchers("/api/categories/**").hasRole(ADMIN)
                         .requestMatchers("/api/posts/**").hasRole(ADMIN)
                         .requestMatchers("/api/admin/tags/**").hasRole(ADMIN)
 
-                        // ---- DEFAULT: anything not matched above still requires login -------
                         .anyRequest().authenticated())
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
