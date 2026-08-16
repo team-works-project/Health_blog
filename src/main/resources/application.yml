@@ -16,6 +16,22 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
     repair-on-migrate: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 security:
   jwt:
@@ -28,3 +44,15 @@ minio:
   access-key: ${MINIO_ACCESS_KEY:minioadmin}
   secret-key: ${MINIO_SECRET_KEY:minioadmin}
   bucket: ${MINIO_BUCKET:health-blog}
+
+notification:
+  rabbitmq:
+    exchange: ${NOTIFICATION_EXCHANGE:post.notification.exchange}
+    queue: ${NOTIFICATION_QUEUE:post.notification.queue}
+    routing-key: ${NOTIFICATION_ROUTING_KEY:post.notification.routingkey}
+
+mail:
+  from: ${MAIL_FROM:no-reply@health-blog.local}
+
+app:
+  frontend-url: ${APP_FRONTEND_URL:http://localhost:5173}

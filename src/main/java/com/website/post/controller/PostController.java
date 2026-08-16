@@ -21,6 +21,7 @@ import static com.website.shared.api.ControllerHandler.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/posts")
 public class PostController {
+
     private final PostService postService;
 
     @GetMapping

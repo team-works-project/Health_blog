@@ -1,6 +1,8 @@
 package com.website.post.service;
 
 
+import com.website.messaging.PostNotificationMessage;
+import com.website.messaging.PostNotificationProducer;
 import com.website.post.dto.request.PostRequest;
 import com.website.post.dto.response.PostDetailResponse;
 import com.website.post.dto.response.PostResponse;
@@ -29,11 +31,13 @@ import java.util.Set;
 @Service
 @RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
+
     private final PostRepository postRepository;
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
     private final TagRepository tagRepository;
     private final PostMapper postMapper;
+    private final PostNotificationProducer postNotificationProducer;
 
     @Override
     public Page<PostResponse> list(Integer page, Integer size, String keyword) {
@@ -62,6 +66,15 @@ public class PostServiceImpl implements PostService {
         post.setTags(resolveTags(request.getTagIds()));
         post.setCreatedBy(metadata.getEmail());
         post.setUpdatedBy(metadata.getEmail());
+        Post saved = postRepository.save(post);
+
+        postNotificationProducer.publishPostCreated(
+                PostNotificationMessage.builder()
+                        .postId(saved.getId())
+                        .postTitle(saved.getTitle())
+                        .authorId(saved.getAuthor().getId())
+                        .authorDisplayName(saved.getAuthor().getDisplayName())
+                        .build());
         return postMapper.fromDetail(postRepository.save(post));
     }
     @Override

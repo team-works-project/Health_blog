@@ -17,10 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Public/read-only endpoints for browsing tags (e.g. filtering posts by tag,
- * showing a tag cloud). No login required - see SecurityConfiguration.
- */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/tags")
